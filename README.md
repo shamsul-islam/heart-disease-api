@@ -50,15 +50,25 @@ docker compose up
 Visit Swagger UI at http://localhost:8000/docs
 
 Deploy to Render
-1. Push your repo to GitHub
 
-2. Create a new Web Service on Render
+To deploy this application to Render, follow these steps:
 
-3. Select Docker as the environment
+1.  **Push your repository to GitHub:** Ensure your project is pushed to a GitHub repository.
 
-4. Connect your GitHub repository
+2.  **Create a new Web Service on Render:**
+    *   Go to the Render Dashboard.
+    *   Click "New" -> "Web Service".
 
-5. Deploy and test your live API URL /docs
+3.  **Connect your GitHub repository:**
+    *   Select your GitHub repository containing this project.
+
+4.  **Configure the Web Service:**
+    *   **Environment:** Select `Docker`.
+    *   **Build Command:** Leave empty (Render will use your `Dockerfile`).
+    *   **Start Command:** Leave empty (Render will use the `CMD` in your `Dockerfile`).
+    *   **Port:** Ensure this is set to `8000` (or the port your application listens on, which is `8000` by default in the `Dockerfile`). Render will automatically inject the `PORT` environment variable.
+
+5.  **Deploy and test:** Once deployed, you can access your live API URL. Append `/docs` to the URL to see the Swagger UI.
 
 API Endpoints
 * GET /health - Health check
